@@ -21,6 +21,8 @@ final kSizedBox2 = SizedBox(
   height: 2.h,
 );
 
+final screensDefaultPadding = EdgeInsets.only(left: 4.w, right: 4.w);
+
 final inputTextHintStyle = GoogleFonts.lato().copyWith(
   fontSize: SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 11.sp,
   letterSpacing: 1.0,

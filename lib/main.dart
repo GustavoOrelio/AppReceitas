@@ -1,4 +1,5 @@
 import 'package:cardapio/constants.dart';
+import 'package:cardapio/telas/tela_de_cadastro/tela_de_cadastro.dart';
 import 'package:cardapio/telas/tela_de_login/tela_de_login.dart';
 import 'package:cardapio/telas/tela_principal/tela_principal.dart';
 import 'package:flutter/material.dart';
@@ -91,6 +92,7 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           TelaPrincipal.routeName: (context) => TelaPrincipal(),
           TelaDeLogin.routeName: (context) => TelaDeLogin(),
+          TelaDeCadastro.routeName: (context) => TelaDeCadastro(),
         },
       );
     });

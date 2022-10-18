@@ -1,22 +1,20 @@
 import 'package:cardapio/constants.dart';
-import 'package:cardapio/telas/tela_de_cadastro/tela_de_cadastro.dart';
 import 'package:cardapio/widgets_globais/custom_btn.dart';
 import 'package:cardapio/widgets_globais/custom_suffix.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sizer/sizer.dart';
 
-class TelaDeLogin extends StatefulWidget {
-  static String routeName = 'TelaDeLogin';
+class TelaDeCadastro extends StatefulWidget {
+  static String routeName = 'TelaDeCadastro';
 
   @override
-  State<TelaDeLogin> createState() => _TelaDeLogin();
+  State<TelaDeCadastro> createState() => _TelaDeCadastro();
 }
 
-class _TelaDeLogin extends State<TelaDeLogin> {
+class _TelaDeCadastro extends State<TelaDeCadastro> {
   final _formKey = GlobalKey<FormState>();
-  final List<FocusNode> _focusNodes = [
-    FocusNode(),
-    FocusNode(),
-  ];
+  final List<FocusNode> _focusNodes = [FocusNode(), FocusNode(), FocusNode()];
 
   @override
   void initState() {
@@ -41,7 +39,7 @@ class _TelaDeLogin extends State<TelaDeLogin> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Bem-Vindo Novamente',
+                'Seja Bem-Vindo',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline4,
               ),
@@ -57,77 +55,32 @@ class _TelaDeLogin extends State<TelaDeLogin> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      buildEmailField(),
-                      kSizedBox2,
-                      buildPasswordField(),
-                      kSizedBox2,
                       InkWell(
-                        onTap: () {
-                          //Ao clicar vai para a tela de recuperar senha;
-                        },
-                        child: Align(
-                          alignment: Alignment.bottomRight,
-                          child: Text(
-                            'Esqueceu a senha?',
-                            textAlign: TextAlign.end,
-                            style: Theme.of(context)
-                                .textTheme
-                                .subtitle1!
-                                .copyWith(color: kPrimaryColor),
+                        child: CircleAvatar(
+                          backgroundColor: kFillColor,
+                          radius: 10.h,
+                          child: SvgPicture.asset(
+                            "assets/icons/image.svg",
+                            height: 10.h,
                           ),
                         ),
                       ),
+                      kSizedBox2,
+                      buildFullNameField(),
+                      kSizedBox2,
+                      buildEmailField(),
+                      kSizedBox2,
+                      buildPasswordField(),
                       kSizedBox2,
                       kSizedBox2,
                       CustomBtn(
                           onPress: () {
                             //Realiza o login
-                            if(_formKey.currentState!.validate()){
+                            if (_formKey.currentState!.validate()) {
                               //Vai para a tela principal
                             }
                           },
-                          title: 'Entrar'),
-                      kSizedBox2,
-                      kSizedBox2,
-                      Text(
-                        'Ou continue com',
-                        textAlign: TextAlign.end,
-                        style: Theme.of(context).textTheme.subtitle2,
-                      ),
-                      kSizedBox2,
-                      kSizedBox2,
-                      CustomIconBtn(
-                          onPress: () {
-                            //Realiza login com o google
-                          },
-                          title: 'Google',
-                          icon: 'assets/icons/google.svg'),
-                      kSizedBox2,
-                      kSizedBox2,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(
-                            "Não possui uma conta?",
-                            style: Theme.of(context).textTheme.subtitle2,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              //Vai para a tela de cadastro
-                              Navigator.pushNamed(context, TelaDeCadastro.routeName);
-                            },
-                            child: Text(
-                              "Cadastre-se aqui",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .subtitle1!
-                                  .copyWith(
-                                      color: kPrimaryColor,
-                                      fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                        ],
-                      )
+                          title: 'Cadastrar'),
                     ],
                   ))
             ],
@@ -137,9 +90,32 @@ class _TelaDeLogin extends State<TelaDeLogin> {
     );
   }
 
-  TextFormField buildEmailField() {
+  TextFormField buildFullNameField() {
     return TextFormField(
       focusNode: _focusNodes[0],
+      textAlign: TextAlign.start,
+      keyboardType: TextInputType.emailAddress,
+      style: inputTextHintStyle,
+      decoration: InputDecoration(
+        labelText: 'Nome completo',
+        suffixIcon: CustomSuffixIcon(
+          iconSrc: 'assets/icons/person.svg',
+          iconColor:
+              _focusNodes[0].hasFocus ? kTextPrimaryColor : kTextSecondaryColor,
+        ),
+      ),
+      validator: (value) {
+        if (value!.length < 4) {
+          return 'O nome precisa ter mais de 4 caractéres';
+        }
+        return null;
+      },
+    );
+  }
+
+  TextFormField buildEmailField() {
+    return TextFormField(
+      focusNode: _focusNodes[1],
       textAlign: TextAlign.start,
       keyboardType: TextInputType.emailAddress,
       style: inputTextHintStyle,
@@ -148,7 +124,7 @@ class _TelaDeLogin extends State<TelaDeLogin> {
         suffixIcon: CustomSuffixIcon(
           iconSrc: 'assets/icons/email.svg',
           iconColor:
-              _focusNodes[0].hasFocus ? kTextPrimaryColor : kTextSecondaryColor,
+              _focusNodes[1].hasFocus ? kTextPrimaryColor : kTextSecondaryColor,
         ),
       ),
       validator: (value) {
@@ -165,7 +141,7 @@ class _TelaDeLogin extends State<TelaDeLogin> {
 
   TextFormField buildPasswordField() {
     return TextFormField(
-        focusNode: _focusNodes[1],
+        focusNode: _focusNodes[2],
         obscureText: true,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.visiblePassword,
@@ -174,7 +150,7 @@ class _TelaDeLogin extends State<TelaDeLogin> {
           labelText: 'Senha',
           suffixIcon: CustomSuffixIcon(
             iconSrc: 'assets/icons/lock.svg',
-            iconColor: _focusNodes[1].hasFocus
+            iconColor: _focusNodes[2].hasFocus
                 ? kTextPrimaryColor
                 : kTextSecondaryColor,
           ),
