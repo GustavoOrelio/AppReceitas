@@ -1,4 +1,5 @@
 import 'package:cardapio/constants.dart';
+import 'package:cardapio/widgets_globais/custom_bottombar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -10,8 +11,11 @@ class TelaMenu extends StatefulWidget {
 }
 
 class _TelaMenuState extends State<TelaMenu> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
+    PageController myPage = PageController(initialPage: _selectedIndex);
     return Scaffold(
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: BottomAppBar(
@@ -24,71 +28,93 @@ class _TelaMenuState extends State<TelaMenu> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomBottomBar(
-                  onPress: () {},
+                  onPress: () {
+                    setState(() {
+                      _selectedIndex = 0;
+                      myPage.jumpToPage(_selectedIndex);
+                    });
+                  },
                   title: 'Menu',
-                  iconColor: kPrimaryColor,
-                  textColor: kPrimaryColor,
+                  iconColor:
+                      _selectedIndex == 0 ? kPrimaryColor : kTextSecondaryColor,
+                  textColor:
+                      _selectedIndex == 0 ? kPrimaryColor : kTextSecondaryColor,
                   iconData: Icons.home_filled),
               CustomBottomBar(
-                  onPress: () {},
+                  onPress: () {
+                    setState(() {
+                      _selectedIndex = 1;
+                      myPage.jumpToPage(_selectedIndex);
+                    });
+                  },
                   title: 'Upload',
-                  iconColor: kPrimaryColor,
-                  textColor: kPrimaryColor,
+                  iconColor:
+                      _selectedIndex == 1 ? kPrimaryColor : kTextSecondaryColor,
+                  textColor:
+                      _selectedIndex == 1 ? kPrimaryColor : kTextSecondaryColor,
                   iconData: Icons.upload),
               CustomBottomBar(
-                  onPress: () {},
+                  onPress: () {
+                    setState(() {
+                      _selectedIndex = 2;
+                      myPage.jumpToPage(_selectedIndex);
+                    });
+                  },
                   title: 'Notificações',
-                  iconColor: kPrimaryColor,
-                  textColor: kPrimaryColor,
+                  iconColor:
+                      _selectedIndex == 2 ? kPrimaryColor : kTextSecondaryColor,
+                  textColor:
+                      _selectedIndex == 2 ? kPrimaryColor : kTextSecondaryColor,
                   iconData: Icons.notifications),
               CustomBottomBar(
-                  onPress: () {},
+                  onPress: () {
+                    setState(() {
+                      _selectedIndex = 3;
+                      myPage.jumpToPage(_selectedIndex);
+                    });
+                  },
                   title: 'Perfil',
-                  iconColor: kPrimaryColor,
-                  textColor: kPrimaryColor,
+                  iconColor:
+                      _selectedIndex == 3 ? kPrimaryColor : kTextSecondaryColor,
+                  textColor:
+                      _selectedIndex == 3 ? kPrimaryColor : kTextSecondaryColor,
                   iconData: Icons.person),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class CustomBottomBar extends StatelessWidget {
-  const CustomBottomBar(
-      {Key? key,
-      required this.onPress,
-      required this.title,
-      required this.iconColor,
-      required this.textColor,
-      required this.iconData})
-      : super(key: key);
-  final VoidCallback onPress;
-  final String title;
-  final Color iconColor;
-  final Color textColor;
-  final IconData iconData;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPress,
-      child: Column(
-        children: [
-          Icon(
-            iconData,
-            color: iconColor,
+      body: PageView(
+        controller: myPage,
+        physics: const NeverScrollableScrollPhysics(),
+        children: const <Widget>[
+          Center(
+            child: Text('Menu')
           ),
-          kSizedBox1,
-          Text(
-            title,
-            style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                  color: textColor,
-                ),
-          )
+          Center(
+              child: Text('Upload')
+          ),
+          Center(
+              child: Text('Notificações')
+          ),
+          Center(
+              child: Text('Perfil')
+          ),
         ],
       ),
+      floatingActionButton: SizedBox(
+        width: 16.w,
+        height: 8.h,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: kPrimaryColor,
+            child: const Icon(Icons.document_scanner_sharp),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
+
+

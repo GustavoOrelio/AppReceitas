@@ -91,6 +91,9 @@ class MyApp extends StatelessWidget {
                   color: kErrorBorderColor, style: BorderStyle.solid),
             ),
           ),
+          bottomAppBarTheme: const BottomAppBarTheme(
+            shape: CircularNotchedRectangle(),
+          )
         ),
         initialRoute: TelaPrincipal.routeName,
         routes: <String, WidgetBuilder>{
