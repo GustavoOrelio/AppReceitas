@@ -1,6 +1,9 @@
 import 'package:cardapio/constants.dart';
+import 'package:cardapio/telas/tela_codigo_verificacao/tela_codigo_verificacao.dart';
 import 'package:cardapio/telas/tela_de_cadastro/tela_de_cadastro.dart';
 import 'package:cardapio/telas/tela_de_login/tela_de_login.dart';
+import 'package:cardapio/telas/tela_esqueceu_senha/tela_esqueceu_senha.dart';
+import 'package:cardapio/telas/tela_nova_senha/tela_nova_senha.dart';
 import 'package:cardapio/telas/tela_principal/tela_principal.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -92,6 +95,9 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           TelaPrincipal.routeName: (context) => TelaPrincipal(),
           TelaDeLogin.routeName: (context) => TelaDeLogin(),
+          TelaEsqueceuSenha.routeName: (context) => TelaEsqueceuSenha(),
+          TelaCodigoVerificacao.routeName: (context) => TelaCodigoVerificacao(),
+          TelaNovaSenha.routeName: (context) => TelaNovaSenha(),
           TelaDeCadastro.routeName: (context) => TelaDeCadastro(),
         },
       );

@@ -1,5 +1,6 @@
 import 'package:cardapio/constants.dart';
 import 'package:cardapio/telas/tela_de_cadastro/tela_de_cadastro.dart';
+import 'package:cardapio/telas/tela_esqueceu_senha/tela_esqueceu_senha.dart';
 import 'package:cardapio/widgets_globais/custom_btn.dart';
 import 'package:cardapio/widgets_globais/custom_suffix.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class _TelaDeLogin extends State<TelaDeLogin> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Bem-Vindo Novamente',
+                'Bem-Vindo Novamente!',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline4,
               ),
@@ -64,6 +65,7 @@ class _TelaDeLogin extends State<TelaDeLogin> {
                       InkWell(
                         onTap: () {
                           //Ao clicar vai para a tela de recuperar senha;
+                          Navigator.pushNamed(context, TelaEsqueceuSenha.routeName);
                         },
                         child: Align(
                           alignment: Alignment.bottomRight,
