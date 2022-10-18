@@ -1,6 +1,7 @@
 import 'package:cardapio/constants.dart';
 import 'package:cardapio/telas/tela_de_cadastro/tela_de_cadastro.dart';
 import 'package:cardapio/telas/tela_esqueceu_senha/tela_esqueceu_senha.dart';
+import 'package:cardapio/telas/tela_menu/tela_menu.dart';
 import 'package:cardapio/widgets_globais/custom_btn.dart';
 import 'package:cardapio/widgets_globais/custom_suffix.dart';
 import 'package:flutter/material.dart';
@@ -84,9 +85,7 @@ class _TelaDeLogin extends State<TelaDeLogin> {
                       CustomBtn(
                           onPress: () {
                             //Realiza o login
-                            if(_formKey.currentState!.validate()){
-                              //Vai para a tela principal
-                            }
+                            Navigator.pushNamed(context, TelaMenu.routeName);
                           },
                           title: 'Entrar'),
                       kSizedBox2,

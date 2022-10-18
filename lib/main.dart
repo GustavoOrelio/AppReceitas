@@ -3,6 +3,7 @@ import 'package:cardapio/telas/tela_codigo_verificacao/tela_codigo_verificacao.d
 import 'package:cardapio/telas/tela_de_cadastro/tela_de_cadastro.dart';
 import 'package:cardapio/telas/tela_de_login/tela_de_login.dart';
 import 'package:cardapio/telas/tela_esqueceu_senha/tela_esqueceu_senha.dart';
+import 'package:cardapio/telas/tela_menu/tela_menu.dart';
 import 'package:cardapio/telas/tela_nova_senha/tela_nova_senha.dart';
 import 'package:cardapio/telas/tela_principal/tela_principal.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +100,7 @@ class MyApp extends StatelessWidget {
           TelaCodigoVerificacao.routeName: (context) => TelaCodigoVerificacao(),
           TelaNovaSenha.routeName: (context) => TelaNovaSenha(),
           TelaDeCadastro.routeName: (context) => TelaDeCadastro(),
+          TelaMenu.routeName: (context) => TelaMenu(),
         },
       );
     });
