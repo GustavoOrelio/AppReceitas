@@ -1,9 +1,10 @@
 import 'package:cardapio/constants.dart';
+import 'package:cardapio/telas/tela_de_login/tela_de_login.dart';
 import 'package:flutter/material.dart';
 import 'componentes/principal_componentes.dart';
 
 class TelaPrincipal extends StatelessWidget {
-  const TelaPrincipal({Key? key}) : super(key: key);
+  static String routeName = 'TelaPrincipal';
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,8 @@ class TelaPrincipal extends StatelessWidget {
         kSizedBox2,
         PrincipalBtn(onPress: () {
           //Ir para a proxima tela
+          Navigator.pushNamedAndRemoveUntil(
+              context, TelaDeLogin.routeName, (route) => false);
         }),
         kSizedBox2,
         kSizedBox2,

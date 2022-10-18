@@ -1,4 +1,5 @@
 import 'package:cardapio/constants.dart';
+import 'package:cardapio/telas/tela_de_login/tela_de_login.dart';
 import 'package:cardapio/telas/tela_principal/tela_principal.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,6 +23,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.light().copyWith(
           scaffoldBackgroundColor: kScaffoldColor,
           textTheme: GoogleFonts.latoTextTheme().copyWith(
+            headline4: TextStyle(
+              fontWeight: FontWeight.w800,
+              color: kTextPrimaryColor,
+              fontSize:
+                  SizerUtil.deviceType == DeviceType.tablet ? 18.sp : 20.sp,
+            ),
             headline5: TextStyle(
               fontWeight: FontWeight.w700,
               color: kTextPrimaryColor,
@@ -32,6 +39,12 @@ class MyApp extends StatelessWidget {
               color: kTextSecondaryColor,
               fontSize: 13.sp,
             ),
+            subtitle2: TextStyle(
+              fontWeight: FontWeight.w300,
+              color: kTextSecondaryColor,
+              fontSize:
+                  SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 10.sp,
+            ),
             button: TextStyle(
               letterSpacing: 0.5,
               fontWeight: FontWeight.w500,
@@ -39,8 +52,46 @@ class MyApp extends StatelessWidget {
               color: kTextWhiteColor,
             ),
           ),
+          inputDecorationTheme: InputDecorationTheme(
+            floatingLabelStyle: const TextStyle(color: kTextPrimaryColor),
+            floatingLabelBehavior: FloatingLabelBehavior.auto,
+            floatingLabelAlignment: FloatingLabelAlignment.center,
+            labelStyle: inputTextHintStyle.copyWith(
+              color: kTextSecondaryColor,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(
+                  color: kTextSecondaryColor, style: BorderStyle.solid),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(
+                  color: kTextSecondaryColor.withOpacity(0.6),
+                  style: BorderStyle.solid),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(
+                  color: kPrimaryColor, style: BorderStyle.solid),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(
+                  color: kErrorBorderColor, style: BorderStyle.solid),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: const BorderSide(
+                  color: kErrorBorderColor, style: BorderStyle.solid),
+            ),
+          ),
         ),
-        home: TelaPrincipal(),
+        initialRoute: TelaPrincipal.routeName,
+        routes: <String, WidgetBuilder>{
+          TelaPrincipal.routeName: (context) => TelaPrincipal(),
+          TelaDeLogin.routeName: (context) => TelaDeLogin(),
+        },
       );
     });
   }

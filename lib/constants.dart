@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 const Color kScaffoldColor = Color(0xFFFFFFFF);
@@ -19,3 +20,13 @@ final kSizedBox1 = SizedBox(
 final kSizedBox2 = SizedBox(
   height: 2.h,
 );
+
+final inputTextHintStyle = GoogleFonts.lato().copyWith(
+  fontSize: SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 11.sp,
+  letterSpacing: 1.0,
+  color: kTextPrimaryColor,
+);
+
+//Validação do email
+const String emailPattern =
+    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
