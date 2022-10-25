@@ -5,6 +5,7 @@ import 'package:cardapio/telas/tela_de_login/tela_de_login.dart';
 import 'package:cardapio/telas/tela_esqueceu_senha/tela_esqueceu_senha.dart';
 import 'package:cardapio/telas/tela_menu/tela_menu.dart';
 import 'package:cardapio/telas/tela_nova_senha/tela_nova_senha.dart';
+import 'package:cardapio/telas/tela_perfil/detalhes_receita/detalhes_receita.dart';
 import 'package:cardapio/telas/tela_perfil/tela_perfil.dart';
 import 'package:cardapio/telas/tela_principal/tela_principal.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w300,
                 color: kTextSecondaryColor,
                 fontSize:
-                    SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 10.sp,
+                    SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 12.sp,
               ),
               button: TextStyle(
                 letterSpacing: 0.5,
@@ -123,6 +124,7 @@ class MyApp extends StatelessWidget {
           TelaDeCadastro.routeName: (context) => TelaDeCadastro(),
           TelaMenu.routeName: (context) => TelaMenu(),
           TelaPerfil.routeName: (context) => TelaPerfil(),
+          DetalhesReceita.routeName: (context) => DetalhesReceita(),
         },
       );
     });

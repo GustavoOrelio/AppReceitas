@@ -1,5 +1,6 @@
 import 'package:cardapio/constants.dart';
 import 'package:cardapio/telas/tela_perfil/components/componente_perfil.dart';
+import 'package:cardapio/telas/tela_perfil/detalhes_receita/detalhes_receita.dart';
 import 'package:cardapio/telas/tela_perfil/model/perfil_model.dart';
 import 'package:cardapio/widgets_globais/custom_grids.dart';
 import 'package:flutter/cupertino.dart';
@@ -135,6 +136,15 @@ class _TelaPerfilState extends State<TelaPerfil> {
         return ProfileGridWidget(
             onPress: () {
               //Vizualizar os detalhes da receita;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetalhesReceita(
+                    myProfileDetailModel: myProfileDetailModel,
+                    myRecipesItemModel: myRecipes[index],
+                  ),
+                ),
+              );
             },
             favIcon: myRecipes[index].favoritos
                 ? Icons.favorite

@@ -21,6 +21,10 @@ final kSizedBox2 = SizedBox(
   height: 2.h,
 );
 
+const kDivider =  Divider(
+  thickness: 1.0,
+);
+
 final screensDefaultPadding = EdgeInsets.only(left: 4.w, right: 4.w);
 
 final kMyProfileGridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
