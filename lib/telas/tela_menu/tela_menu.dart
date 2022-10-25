@@ -1,4 +1,5 @@
 import 'package:cardapio/constants.dart';
+import 'package:cardapio/telas/tela_perfil/tela_perfil.dart';
 import 'package:cardapio/widgets_globais/custom_bottombar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -86,19 +87,12 @@ class _TelaMenuState extends State<TelaMenu> {
       body: PageView(
         controller: myPage,
         physics: const NeverScrollableScrollPhysics(),
-        children: const <Widget>[
-          Center(
-            child: Text('Menu')
-          ),
-          Center(
-              child: Text('Upload')
-          ),
-          Center(
-              child: Text('Notificações')
-          ),
-          Center(
-              child: Text('Perfil')
-          ),
+        children: <Widget>[
+          const Center(child: Text('Menu')),
+          const Center(child: Text('Upload')),
+          const Center(child: Text('Notificações')),
+          //Perfil
+          TelaPerfil(),
         ],
       ),
       floatingActionButton: SizedBox(
@@ -116,5 +110,3 @@ class _TelaMenuState extends State<TelaMenu> {
     );
   }
 }
-
-

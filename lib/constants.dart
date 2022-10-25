@@ -23,6 +23,9 @@ final kSizedBox2 = SizedBox(
 
 final screensDefaultPadding = EdgeInsets.only(left: 4.w, right: 4.w);
 
+final kMyProfileGridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2, mainAxisSpacing: 1.h, childAspectRatio: 1 / 1.4);
+
 final inputTextHintStyle = GoogleFonts.lato().copyWith(
   fontSize: SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 11.sp,
   letterSpacing: 1.0,
