@@ -1,4 +1,5 @@
 import 'package:cardapio/constants.dart';
+import 'package:cardapio/telas/tela_home/tela_home.dart';
 import 'package:cardapio/telas/tela_perfil/tela_perfil.dart';
 import 'package:cardapio/widgets_globais/custom_bottombar.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,7 @@ class _TelaMenuState extends State<TelaMenu> {
         controller: myPage,
         physics: const NeverScrollableScrollPhysics(),
         children: <Widget>[
-          const Center(child: Text('Menu')),
+          TelaHome(),
           const Center(child: Text('Upload')),
           const Center(child: Text('Notificações')),
           //Perfil

@@ -21,14 +21,24 @@ final kSizedBox2 = SizedBox(
   height: 2.h,
 );
 
-const kDivider =  Divider(
+const kDivider = Divider(
   thickness: 1.0,
 );
+
+const kCrossAxisCount = 2;
+final kMainAxisSpacing = 1.h;
 
 final screensDefaultPadding = EdgeInsets.only(left: 4.w, right: 4.w);
 
 final kMyProfileGridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 2, mainAxisSpacing: 1.h, childAspectRatio: 1 / 1.4);
+    crossAxisCount: kCrossAxisCount,
+    mainAxisSpacing: kMainAxisSpacing,
+    childAspectRatio: 1 / 1.4);
+
+final kHomeGridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: kCrossAxisCount,
+    mainAxisSpacing: kMainAxisSpacing,
+    childAspectRatio: 1 / 1.8);
 
 final inputTextHintStyle = GoogleFonts.lato().copyWith(
   fontSize: SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 11.sp,
