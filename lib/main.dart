@@ -9,6 +9,7 @@ import 'package:cardapio/telas/tela_nova_senha/tela_nova_senha.dart';
 import 'package:cardapio/telas/tela_perfil/detalhes_receita/detalhes_receita.dart';
 import 'package:cardapio/telas/tela_perfil/tela_perfil.dart';
 import 'package:cardapio/telas/tela_principal/tela_principal.dart';
+import 'package:cardapio/telas/tela_upload/tela_upload.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
@@ -126,6 +127,7 @@ class MyApp extends StatelessWidget {
           TelaMenu.routeName: (context) => TelaMenu(),
           TelaHome.routeName: (context) => TelaHome(),
           TelaPerfil.routeName: (context) => TelaPerfil(),
+          TelaUpload.routeName: (context) => TelaUpload(),
           DetalhesReceita.routeName: (context) => DetalhesReceita(),
         },
       );
